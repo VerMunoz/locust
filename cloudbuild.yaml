@@ -1,0 +1,9 @@
+steps:
+  - name: "gcr.io/cloud-builders/go"
+    args: ["install", "github.com/VerMunoz/locust"]
+    env: ["PROJECT_ROOT=github.com/VerMunoz/locust"]
+  - name: "gcr.io/cloud-builders/docker"
+    args: ["build", "-t", "gcr.io/spin-230020/locust:$REVISION_ID", "-f", "Dockerfile", "."]
+images:
+  - "gcr.io/spin-230020/locust:$REVISION_ID"
+
