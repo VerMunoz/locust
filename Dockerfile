@@ -12,6 +12,7 @@ RUN apk add --no-cache -U --virtual build-deps \
 RUN mkdir /locust
 WORKDIR /locust
 
+COPY locustfile.py /locust 
 COPY docker-entrypoint.sh /
 
 ENTRYPOINT ["/docker-entrypoint.sh"]
